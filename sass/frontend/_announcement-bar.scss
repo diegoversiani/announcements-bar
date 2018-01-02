@@ -1,6 +1,5 @@
-/*------------------------------------*  #FRONTEND STYLES
-\*------------------------------------*/
-/*------------------------------------*  #ANNOUNCEMENTS BAR
+/*------------------------------------*\
+  #ANNOUNCEMENTS BAR
 \*------------------------------------*/
 .announcement-bar {
   display: block;
@@ -8,10 +7,13 @@
   background-color: #000;
   color: #fff;
   height: 40px;
-  line-height: 40px; }
-  .announcement-bar input.widefat {
-    width: calc( 100% - 70px); }
-  .announcement-bar .dismiss {
+  line-height: 40px;
+
+  input.widefat {
+    width: calc( 100% - 70px );
+  }
+
+  .dismiss {
     position: absolute;
     top: 0;
     right: 0;
@@ -22,23 +24,25 @@
     background-color: transparent;
     border: 0;
     border-radius: 0;
-    color: #fff; }
-    .announcement-bar .dismiss svg {
+    color: #fff;
+    
+    svg {
       display: inline-block;
-      vertical-align: middle; }
+      vertical-align: middle;
+    }
+  }
+}
 
 .announcement-bar.top {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0; }
+  right: 0;
+}
 
 .announcement-bar.bottom {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0; }
-
-/**
- * VARIABLES
- */
+  right: 0;
+}

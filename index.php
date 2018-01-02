@@ -23,6 +23,11 @@ define( 'ANNB_TEMPLATES_FOLDER',  ANNB_PLUGIN_PATH . 'templates/' );
 
 
 /**
+ * Load enqueue scripts and styles
+ */
+require plugin_dir_path( __FILE__ ) . '/inc/enqueue.php';
+
+/**
  * Load classes
  */
 require plugin_dir_path( __FILE__ ) . '/inc/classes/class.announcement-bar-plugin.php';
@@ -33,6 +38,6 @@ require plugin_dir_path( __FILE__ ) . '/inc/classes/class.announcement-bar-plugi
 require_once( ANNB_PLUGIN_PATH . 'inc/custom-post-types/custom-post-type-announcement-bar.php' );
 
 /**
- * Load enqueue scripts and styles
+ * Load output front end html.
  */
-require plugin_dir_path( __FILE__ ) . '/inc/enqueue.php';
+require_once( ANNB_PLUGIN_PATH . 'inc/output-announcement-bars.php' );
