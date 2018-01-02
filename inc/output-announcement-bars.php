@@ -40,6 +40,10 @@ function annb_announcement_bars_output_html() {
       $background_color = $background_color != '' ? $background_color : '#000000';
       $text_color = sanitize_hex_color( $post_meta['text-color'] );
       $text_color = $text_color != '' ? $text_color : '#ffffff';
+      $button_background_color = sanitize_hex_color( $post_meta['button-background-color'] );
+      $button_background_color = $button_background_color != '' ? $button_background_color : '#000000';
+      $button_text_color = sanitize_hex_color( $post_meta['button-text-color'] );
+      $button_text_color = $button_text_color != '' ? $button_text_color : '#ffffff';
 
       if ( $display_on == 'all'
             || ( $display_on == 'homepage' && is_front_page() )

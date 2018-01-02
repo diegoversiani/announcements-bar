@@ -130,6 +130,10 @@ function annb_announcement_bar_options_metabox_render() {
   $background_color = $background_color != '' ? $background_color : '#000000';
   $text_color = sanitize_hex_color( $post_meta['text-color'] );
   $text_color = $text_color != '' ? $text_color : '#ffffff';
+  $button_background_color = sanitize_hex_color( $post_meta['button-background-color'] );
+  $button_background_color = $button_background_color != '' ? $button_background_color : '#000000';
+  $button_text_color = sanitize_hex_color( $post_meta['button-text-color'] );
+  $button_text_color = $button_text_color != '' ? $button_text_color : '#ffffff';
 
   // create nonce
   wp_nonce_field( basename( __FILE__ ), 'annb_meta_nonce' );
@@ -156,8 +160,16 @@ function annb_announcement_bar_options_metabox_render() {
       <input type="text" min="1" id="post_meta[background-color]" name="post_meta[background-color]" class="wp-color-picker" value="<?php echo esc_attr( $background_color ); ?>">
     </p>
     <p>
-      <label for="post_meta[text-color]"><?php _e( 'Text color:', 'annb' ); ?></label><br>
+      <label for="post_meta[text-color]"><?php _e( 'Text:', 'annb' ); ?></label><br>
       <input type="text" min="1" id="post_meta[text-color]" name="post_meta[text-color]" class="wp-color-picker" value="<?php echo esc_attr( $text_color ); ?>">
+    </p>
+    <p>
+      <label for="post_meta[button-background-color]"><?php _e( 'Dismiss background:', 'annb' ); ?></label><br>
+      <input type="text" min="1" id="post_meta[button-background-color]" name="post_meta[button-background-color]" class="wp-color-picker" value="<?php echo esc_attr( $button_background_color ); ?>">
+    </p>
+    <p>
+      <label for="post_meta[button-text-color]"><?php _e( 'Dismiss icon:', 'annb' ); ?></label><br>
+      <input type="text" min="1" id="post_meta[button-text-color]" name="post_meta[button-text-color]" class="wp-color-picker" value="<?php echo esc_attr( $button_text_color ); ?>">
     </p>
 
 
@@ -273,6 +285,20 @@ function annb_announcement_bar_metaboxes_save( $post_id ) {
       $text_color = sanitize_hex_color( $_POST['post_meta']['text-color'] );
       $text_color = $text_color != '' ? $text_color : '#000000';
       $post_meta['text-color'] = $text_color;
+    }
+
+    // Button Background color
+    if ( isset( $_POST['post_meta']['button-background-color'] ) ) {
+      $button_background_color = sanitize_hex_color( $_POST['post_meta']['button-background-color'] );
+      $button_background_color = $button_background_color != '' ? $button_background_color : '#000000';
+      $post_meta['button-background-color'] = $button_background_color;
+    }
+
+    // Button Text color
+    if ( isset( $_POST['post_meta']['button-text-color'] ) ) {
+      $button_text_color = sanitize_hex_color( $_POST['post_meta']['button-text-color'] );
+      $button_text_color = $button_text_color != '' ? $button_text_color : '#000000';
+      $post_meta['button-text-color'] = $button_text_color;
     }
 
     // Save data

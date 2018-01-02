@@ -9,6 +9,11 @@
   line-height: 40px;
   overflow: hidden;
 
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
   input.widefat {
     width: calc( 100% - 70px );
   }

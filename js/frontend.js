@@ -44,7 +44,11 @@
   var _animatedElements = [];
   var _animatedBars,
       _animatedBarsSelector = '.announcement-bar.animated',
-      _velocity = 20;
+      _allBars,
+      _allBarsSelector = '.announcement-bar',
+      _velocity = 20,
+      _bodyClass = 'has-announcement-bar',
+      _bodyClassTop = 'has-announcement-bar--top';
 
 
   /**
@@ -53,11 +57,26 @@
   function init() {
     document.addEventListener( 'click', handleDocumentClick );
 
+    // Get bars
     _animatedBars = document.querySelectorAll( _animatedBarsSelector );
+    _allBars = document.querySelectorAll( _allBarsSelector );
+
     if ( _animatedBars ) {
+
       // Start animating
       initializeElementsPosition();
       loopUpdatePositions();
+    }
+
+    // Add body class
+    document.body.classList.add( _bodyClass );
+
+    // Add body class 'top' if there are top bars being displayed
+    for (var i = 0; i < _allBars.length; i++) {
+      if ( _allBars[i].classList.contains( 'top' ) ) {
+        document.body.classList.add( _bodyClassTop );
+        break;
+      }
     }
   };
 

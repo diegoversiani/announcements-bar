@@ -9,6 +9,9 @@
   height: 40px;
   line-height: 40px;
   overflow: hidden; }
+  .announcement-bar a {
+    color: inherit;
+    text-decoration: underline; }
   .announcement-bar input.widefat {
     width: calc( 100% - 70px); }
   .announcement-bar .dismiss {
