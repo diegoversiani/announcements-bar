@@ -17,7 +17,7 @@
   var _animatedElements = [];
   var _animatedBars,
       _animatedBarsSelector = '.announcement-bar.animated',
-      _velocity = 100;
+      _velocity = 20;
 
 
   /**
@@ -78,12 +78,14 @@
   function initializeElementsPosition() {
     for (var i = 0; i < _animatedBars.length; i++) {
       var innerElement = _animatedBars[i].querySelector( '.announcements' );
+      var velocity = _animatedBars[i].getAttribute( 'data-velocity' );
+      velocity = isNaN( parseInt(velocity) ) ? _velocity : parseInt( velocity );
 
       var elementPosition = {
         element: innerElement,
         stopped: false,
         position: 0,
-        velocity: _velocity,
+        velocity: velocity,
         width: innerElement.getBoundingClientRect().width,
         parentWidth: innerElement.parentNode.getBoundingClientRect().width,
       };

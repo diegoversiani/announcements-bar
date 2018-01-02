@@ -35,6 +35,7 @@ function annb_announcement_bars_output_html() {
       // Get options
       $display_on = isset( $post_meta['display-on'] ) && $post_meta['display-on'] != '' ? $post_meta['display-on'] : 'all';
       $position = isset( $post_meta['position'] ) && $post_meta['position'] != '' ? $post_meta['position'] : 'top';
+      $velocity = intval( $post_meta['velocity'] ) > 0 ? intval( $post_meta['velocity'] ) : 20;
 
       if ( $display_on == 'all'
             || ( $display_on == 'homepage' && is_front_page() )

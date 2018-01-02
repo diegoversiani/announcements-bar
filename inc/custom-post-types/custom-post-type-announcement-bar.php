@@ -103,7 +103,7 @@ function annb_announcement_bar_announcements_metabox_render() {
   // create nonce
   wp_nonce_field( basename( __FILE__ ), 'annb_meta_nonce' );
   ?>
-    <p class="description"><?php _e( 'Add as many announcements as you wish. It accepts basic HTML tags such as <code>strong</code>, <code>em</code> and <code>a</code>.', 'annb' ); ?></p>
+    <p class="description"><?php _e( 'Add as many announcements as you wish. It supports basic HTML tags such as <code>strong</code>, <code>em</code> and <code>a</code>.', 'annb' ); ?></p>
     
     <?php foreach ( $announcements_array as $announcement ) : ?>
     <div class="announcement-content">
@@ -125,6 +125,7 @@ function annb_announcement_bar_options_metabox_render() {
   $post_meta = ANNB_AnnouncementBar_Plugin()->get_post_meta( $post->ID, 'announcement_bar' );
   $display_on = isset( $post_meta['display-on'] ) && $post_meta['display-on'] != '' ? $post_meta['display-on'] : 'all';
   $position = isset( $post_meta['position'] ) && $post_meta['position'] != '' ? $post_meta['position'] : 'top';
+  $velocity = isset( $post_meta['velocity'] ) && intval( $post_meta['velocity'] ) > 0 ? intval( $post_meta['velocity'] ) : 20;
 
   // create nonce
   wp_nonce_field( basename( __FILE__ ), 'annb_meta_nonce' );
@@ -135,6 +136,12 @@ function annb_announcement_bar_options_metabox_render() {
         <option value="top" <?php selected( 'top', $position, true ); ?>><?php _e( 'Top', 'annb' ); ?></option>
         <option value="bottom" <?php selected( 'bottom', $position, true ); ?>><?php _e( 'Bottom', 'annb' ); ?></option>
       </select>
+    </p>
+
+    <p>
+      <label for="post_meta[velocity]"><strong><?php _e( 'Velocity:', 'annb' ); ?></strong></label><br>
+      <input type="number" min="1" id="post_meta[velocity]" name="post_meta[velocity]" class="widefat" value="<?php echo esc_attr( $velocity ); ?>">
+      <small class="description"><?php _e( 'pixels per second', 'annb' ) ?></small>
     </p>
 
     <strong><?php _e( 'Display on:', 'annb' ) ?></strong><br>
@@ -228,6 +235,13 @@ function annb_announcement_bar_metaboxes_save( $post_id ) {
       else {
         $post_meta['display-on'] = 'all';
       }
+    }
+
+    // Display-on
+    if ( isset( $_POST['post_meta']['velocity'] ) ) {
+      $velocity = intval( $_POST['post_meta']['velocity'] );
+      $velocity = $velocity > 0 ? $velocity : 20;
+      $post_meta['velocity'] = $velocity;
     }
 
     // Save data
