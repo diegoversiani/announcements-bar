@@ -36,6 +36,10 @@ function annb_announcement_bars_output_html() {
       $display_on = isset( $post_meta['display-on'] ) && $post_meta['display-on'] != '' ? $post_meta['display-on'] : 'all';
       $position = isset( $post_meta['position'] ) && $post_meta['position'] != '' ? $post_meta['position'] : 'top';
       $velocity = intval( $post_meta['velocity'] ) > 0 ? intval( $post_meta['velocity'] ) : 20;
+      $background_color = sanitize_hex_color( $post_meta['background-color'] );
+      $background_color = $background_color != '' ? $background_color : '#000000';
+      $text_color = sanitize_hex_color( $post_meta['text-color'] );
+      $text_color = $text_color != '' ? $text_color : '#ffffff';
 
       if ( $display_on == 'all'
             || ( $display_on == 'homepage' && is_front_page() )

@@ -126,6 +126,10 @@ function annb_announcement_bar_options_metabox_render() {
   $display_on = isset( $post_meta['display-on'] ) && $post_meta['display-on'] != '' ? $post_meta['display-on'] : 'all';
   $position = isset( $post_meta['position'] ) && $post_meta['position'] != '' ? $post_meta['position'] : 'top';
   $velocity = isset( $post_meta['velocity'] ) && intval( $post_meta['velocity'] ) > 0 ? intval( $post_meta['velocity'] ) : 20;
+  $background_color = sanitize_hex_color( $post_meta['background-color'] );
+  $background_color = $background_color != '' ? $background_color : '#000000';
+  $text_color = sanitize_hex_color( $post_meta['text-color'] );
+  $text_color = $text_color != '' ? $text_color : '#ffffff';
 
   // create nonce
   wp_nonce_field( basename( __FILE__ ), 'annb_meta_nonce' );
@@ -138,11 +142,24 @@ function annb_announcement_bar_options_metabox_render() {
       </select>
     </p>
 
+
     <p>
       <label for="post_meta[velocity]"><strong><?php _e( 'Velocity:', 'annb' ); ?></strong></label><br>
-      <input type="number" min="1" id="post_meta[velocity]" name="post_meta[velocity]" class="widefat" value="<?php echo esc_attr( $velocity ); ?>">
+      <input type="number" min="1" id="post_meta[velocity]" name="post_meta[velocity]" value="<?php echo esc_attr( $velocity ); ?>">
       <small class="description"><?php _e( 'pixels per second', 'annb' ) ?></small>
     </p>
+
+
+    <strong><?php _e( 'Colors:', 'annb' ) ?></strong><br>
+    <p>
+      <label for="post_meta[background-color]"><?php _e( 'Background:', 'annb' ); ?></label><br>
+      <input type="text" min="1" id="post_meta[background-color]" name="post_meta[background-color]" class="wp-color-picker" value="<?php echo esc_attr( $background_color ); ?>">
+    </p>
+    <p>
+      <label for="post_meta[text-color]"><?php _e( 'Text color:', 'annb' ); ?></label><br>
+      <input type="text" min="1" id="post_meta[text-color]" name="post_meta[text-color]" class="wp-color-picker" value="<?php echo esc_attr( $text_color ); ?>">
+    </p>
+
 
     <strong><?php _e( 'Display on:', 'annb' ) ?></strong><br>
     <p>
@@ -237,11 +254,25 @@ function annb_announcement_bar_metaboxes_save( $post_id ) {
       }
     }
 
-    // Display-on
+    // Velocity
     if ( isset( $_POST['post_meta']['velocity'] ) ) {
       $velocity = intval( $_POST['post_meta']['velocity'] );
       $velocity = $velocity > 0 ? $velocity : 20;
       $post_meta['velocity'] = $velocity;
+    }
+
+    // Background color
+    if ( isset( $_POST['post_meta']['background-color'] ) ) {
+      $background_color = sanitize_hex_color( $_POST['post_meta']['background-color'] );
+      $background_color = $background_color != '' ? $background_color : '#000000';
+      $post_meta['background-color'] = $background_color;
+    }
+
+    // Text color
+    if ( isset( $_POST['post_meta']['text-color'] ) ) {
+      $text_color = sanitize_hex_color( $_POST['post_meta']['text-color'] );
+      $text_color = $text_color != '' ? $text_color : '#000000';
+      $post_meta['text-color'] = $text_color;
     }
 
     // Save data

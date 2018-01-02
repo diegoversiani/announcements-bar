@@ -29,7 +29,7 @@ function annb_admin_scripts( $hook_suffix ) {
     ANNB_PLUGIN_URL . 'css/admin.min.css', ANNB_PLUGIN_VERSION );
 
   // Scripts  
-  wp_register_script( 'annb-admin-scripts', ANNB_PLUGIN_URL . 'js/admin-announcements.min.js', null, ANNB_PLUGIN_VERSION, true );
+  wp_register_script( 'annb-admin-scripts', ANNB_PLUGIN_URL . 'js/admin-announcements.min.js', array( 'wp-color-picker' ), ANNB_PLUGIN_VERSION, true );
 
 
   // ENQUEUE
@@ -41,6 +41,9 @@ function annb_admin_scripts( $hook_suffix ) {
         && in_array( $screen->base, array( 'post' ) ) ) {
     wp_enqueue_style( 'annb-admin-styles' );
     wp_enqueue_script( 'annb-admin-scripts' );
+    wp_enqueue_style( 'wp-color-picker' );
+    // Include our custom jQuery file with WordPress Color Picker dependency
+    // wp_enqueue_script( 'custom-script-handle', plugins_url( 'custom-script.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
   }
 
 }

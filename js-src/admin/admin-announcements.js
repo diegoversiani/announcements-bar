@@ -7,7 +7,7 @@
  * Contact: https://diegoversiani.me/
  */
 
-(function(){
+(function( $ ){
 
   'use strict';
 
@@ -19,6 +19,11 @@
    */
   function init() {
     document.addEventListener( 'click', handleDocumentClick );
+
+    // Initialize color picker fields
+    if ( jQuery ) {
+      $('.wp-color-picker').wpColorPicker();
+    }
   };
 
 
@@ -83,4 +88,4 @@
     }
   };
 
-})();
+})( jQuery );
