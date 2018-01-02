@@ -18,6 +18,7 @@ function annb_announcement_bars_output_html() {
   $announcements = get_posts( $args );
 
   if ( $announcements ) :
+    wp_enqueue_script( 'annb-frontend-script' );
     wp_enqueue_style( 'annb-frontend-styles' );
     
     foreach ( $announcements as $announcement ) {

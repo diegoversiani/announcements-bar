@@ -74,17 +74,17 @@ gulp.task('cleancss', function() {
 // Uglifies and concat all JS files into one
 gulp.task('build-scripts', function() {
   
-  // gulp.src([
-  //     basePaths.node + 'lory.js/dist/lory.js',
-  //     basePaths.js + 'products-carousel-init.js'
-  //   ])
-  //   .pipe(sourcemaps.init())
-  //   .pipe(concat('frontend.js'))
-  //   .pipe(gulp.dest('./js/')) // save .js
-  //   .pipe(uglify())
-  //   .pipe(rename({suffix: '.min'}))
-  //   .pipe(sourcemaps.write('maps'))
-  //   .pipe(gulp.dest('./js/')); // save .min.js
+  gulp.src([
+      basePaths.js + 'shared/polyfill-closest.js',
+      basePaths.js + 'frontend/frontend-announcement-bar.js'
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(concat('frontend.js'))
+    .pipe(gulp.dest('./js/')) // save .js
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write('maps'))
+    .pipe(gulp.dest('./js/')); // save .min.js
 
 
 

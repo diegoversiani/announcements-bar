@@ -12,7 +12,7 @@ function annb_enqueue_scripts_styles() {
   wp_register_style( 'annb-frontend-styles', ANNB_PLUGIN_URL . 'css/frontend.min.css', array(), ANNB_PLUGIN_VERSION );
 
   // Scripts
-  // wp_register_script( 'annb-frontend-script', ANNB_PLUGIN_URL . 'js/frontend.min.js', array(), ANNB_PLUGIN_VERSION, true );
+  wp_register_script( 'annb-frontend-script', ANNB_PLUGIN_URL . 'js/frontend.min.js', array(), ANNB_PLUGIN_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'annb_enqueue_scripts_styles' );
 
