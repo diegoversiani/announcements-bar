@@ -88,6 +88,8 @@
 
     // Add new row bellow
     announcementRow.parentNode.insertBefore( newAnnouncementRow, announcementRow.nextSibling);
+
+    newInput.focus();
   };
 
 
@@ -107,6 +109,7 @@
       // Clear input value
       var input = announcementRow.querySelector( 'input[name="post_meta[announcement-content][]"]' );
       input.value = '';
+      input.focus();
     }
     // Not last row
     else {
