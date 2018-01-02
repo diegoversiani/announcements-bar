@@ -46,7 +46,8 @@
       _animatedBarsSelector = '.announcement-bar.animated',
       _allBars,
       _allBarsSelector = '.announcement-bar',
-      _velocity = 20,
+      _delay = 2000, // milliseconds
+      _velocity = 20, // pixels per second
       _bodyClass = 'has-announcement-bar',
       _bodyClassTop = 'has-announcement-bar--top';
 
@@ -61,11 +62,12 @@
     _animatedBars = document.querySelectorAll( _animatedBarsSelector );
     _allBars = document.querySelectorAll( _allBarsSelector );
 
+    // Prepare animations
     if ( _animatedBars ) {
-
-      // Start animating
       initializeElementsPosition();
-      loopUpdatePositions();
+      
+      // Start animating
+      setTimeout( loopUpdatePositions, _delay );
     }
 
     // Add body class
