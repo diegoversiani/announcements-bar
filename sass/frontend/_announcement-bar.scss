@@ -1,13 +1,13 @@
 /*------------------------------------*\
-  #ANNOUNCEMENTS BAR
+  #ANNOUNCEMENTS BAR POSITION
 \*------------------------------------*/
 .announcement-bar {
   display: block;
-  padding: 0 10px;
   background-color: #000;
   color: #fff;
   height: 40px;
   line-height: 40px;
+  overflow: hidden;
 
   input.widefat {
     width: calc( 100% - 70px );
@@ -21,7 +21,7 @@
     padding: 0;
     width: 40px;
     height: 40px;
-    background-color: transparent;
+    background-color: #000;
     border: 0;
     border-radius: 0;
     color: #fff;
@@ -46,3 +46,25 @@
   left: 0;
   right: 0;
 }
+
+.announcement-bar.animated {
+  transform: translateX(0);
+}
+
+
+
+/*------------------------------------*\
+  #ANNOUNCEMENTS
+\*------------------------------------*/
+.announcements {
+  display: inline-block;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.announcement-item {
+  display: inline-block;
+  padding: 0 40px;
+}
+
+

@@ -5,7 +5,7 @@
 */
 ?>
 
-<aside class="announcement-bar <?php echo esc_attr( $position ); ?>">
+<aside class="announcement-bar <?php echo esc_attr( $position ); ?> animated">
   <ul class="announcements">
     <?php foreach ( $announcements_array as $announcement ) : ?>
     <li class="announcement-item">
