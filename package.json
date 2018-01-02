@@ -16,7 +16,6 @@
     "url": "https://github.com/diegoversiani/announcement-bar/issues"
   },
   "dependencies": {
-    "dragsterjs": "^1.6.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.0",
