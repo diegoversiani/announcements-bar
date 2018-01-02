@@ -1,0 +1,34 @@
+{
+  "name": "announcement-bar",
+  "version": "1.0.0",
+  "description": "WordPress plugin to display announcements on the website.",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegoversiani/announcement-bar.git"
+  },
+  "author": "Diego Versiani",
+  "license": "GPL2",
+  "bugs": {
+    "url": "https://github.com/diegoversiani/announcement-bar/issues"
+  },
+  "dependencies": {
+    "dragsterjs": "^1.6.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-ignore": "^2.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "run-sequence": "^1.2.2"
+  }
+}

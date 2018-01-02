@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  #ADMIN ANNOUNCEMENTS BAR
+\*------------------------------------*/
+.announcement-content {
+  padding: 5px 0;
+
+  input.widefat {
+    width: calc( 100% - 70px );
+  }
+
+  .button-remove.button,
+  .button-add.button {
+    padding-top: 2px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 30px;
+    text-align: center;
+  }
+}
