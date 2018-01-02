@@ -36,8 +36,12 @@ function annb_announcement_bars_output_html() {
       $display_on = isset( $post_meta['display-on'] ) && $post_meta['display-on'] != '' ? $post_meta['display-on'] : 'all';
       $position = isset( $post_meta['position'] ) && $post_meta['position'] != '' ? $post_meta['position'] : 'top';
 
-      // Include template
-      include ( ANNB_AnnouncementBar_Plugin()->locate_template( 'announcement-bar', 'simple' ) );
+      if ( $display_on == 'all'
+            || ( $display_on == 'homepage' && is_front_page() )
+            || ( $display_on == 'except-homepage' && !is_front_page() ) ) {
+        // Include template
+        include ( ANNB_AnnouncementBar_Plugin()->locate_template( 'announcement-bar', 'simple' ) );
+      }
     }
   endif;
 
