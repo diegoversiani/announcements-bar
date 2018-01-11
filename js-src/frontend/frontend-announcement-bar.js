@@ -176,6 +176,19 @@
 
     var announcementBar = e.target.closest( '.announcement-bar' );
     announcementBar.parentNode.removeChild( announcementBar );
+
+    // Update _allBars
+    _allBars = document.querySelectorAll( _allBarsSelector );
+
+    // Remove top class from body element
+    if ( announcementBar.classList.contains( 'top' ) ) {
+      document.body.classList.remove( _bodyClassTop );
+    }
+
+    // Remove has bar body class
+    if ( !_allBars || _allBars.length <= 0 ) {
+      document.body.classList.remove( _bodyClass );
+    }
   };
 
 })();
