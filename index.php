@@ -4,8 +4,8 @@ Plugin Name: Announcements Bar
 Plugin URI:
 Description: Display horizontal scrolling announcements on the website.
 Version: 1.0.0
-Author: Diego Versiani
-Author URI: https://diegoversiani.me/
+Author: PageSpeed.Guru
+Author URI: https://pagespeed.guru/
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
