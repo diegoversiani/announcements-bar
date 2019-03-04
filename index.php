@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'ANNB_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 define( 'ANNB_PLUGIN_URL', plugin_dir_url(__FILE__) );
+define( 'ANNB_PLUGIN_VERSION', '1.0.0' );
 define( 'ANNB_THEME_TEMPLATES_FOLDER', 'plugins/announcement-bar/templates/' );
 define( 'ANNB_TEMPLATES_FOLDER',  ANNB_PLUGIN_PATH . 'templates/' );
 
